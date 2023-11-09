@@ -1,0 +1,13 @@
+* {
+    background: #7CB9E8;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+ .topbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0vw 5vw;
+    font-size: x-large;
+ }
+
+
+    
