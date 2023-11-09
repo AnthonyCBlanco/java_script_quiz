@@ -1,12 +1,32 @@
 * {
     background: #7CB9E8;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    align-items: center;
 }
- .topbar {
+.topbar {
     display: flex;
     justify-content: space-between;
     margin: 0vw 5vw;
     font-size: x-large;
+    margin-bottom: 50px;
+}
+
+.main{
+    width: 600px;
+    text-align: center;   
+    font-size: larger;
+}
+
+button{
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    width: 15vw;
+    height: 4vw;
+}
+
+ #quizcontent{
+    display: none;
  }
 
 
