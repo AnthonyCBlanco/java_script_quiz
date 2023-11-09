@@ -40,16 +40,19 @@ button{
 
  #quizcontent{
     width: 50vw;
-    display: flex;
+    display: none;
     flex-direction: column;
+    font-size: xx-large
  }
 
- #quizcontent{
-    font-size: xx-large;
+ #quizcontent .answer{
+    min-width: 250px;
+    width: fit-content;
+    
  }
 
  .answer{
-    align-self: self-start;
+    align-self: center;
  }
 
     
