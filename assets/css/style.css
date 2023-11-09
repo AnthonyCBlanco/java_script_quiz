@@ -12,22 +12,44 @@
 }
 
 .main{
-    width: 600px;
+    height: 40vw;
+    display: flex;
     text-align: center;   
     font-size: larger;
+    align-items: center;
+    flex-direction: column;
 }
 
+#start {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+/*general button style*/
 button{
+    display: block;
+    margin: 20px;
     background-color: #ffffff;
     border: none;
-    border-radius: 50px;
-    width: 15vw;
-    height: 4vw;
+    border-radius: 100px;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
 }
 
  #quizcontent{
-    display: none;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
  }
 
+ #quizcontent{
+    font-size: xx-large;
+ }
+
+ .answer{
+    align-self: self-start;
+ }
 
     
