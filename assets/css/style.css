@@ -63,4 +63,8 @@ button{
     justify-content: space-between;
  }
 
+ #highscores{
+    display: none;
+ }
+
     

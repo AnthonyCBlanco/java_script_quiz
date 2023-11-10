@@ -21,7 +21,7 @@ const questions = [
     ]
 },
 {
-    question: "How would you define that you want an Array",
+    question: "How would you define an Array",
     answer: 
     [
         {text: "Quotes", isCorrect: false},
@@ -32,6 +32,9 @@ const questions = [
 },
 
 ]
+
+console.table(questions)
+
 const start = document.querySelector("#start")
 const quiz = document.querySelector("#quizcontent")
 const question = document.querySelector("#question")
@@ -55,15 +58,10 @@ function startquiz() {
     var quiztimer = setInterval(function(){
         timeleft--
         document.querySelector('#timer').textContent = timeleft
-
         if(timeleft <=0 || QuestionIndex >= questions.length ){
-            console.log("quiz ended")
+            quizEnd()
             clearInterval(quiztimer)
-            endcontent.setAttribute("style", "display: flex")
-            quiz.setAttribute("style", "display: none")
-            clearInterval(quiztimer)
-            document.querySelector("#finalscore").textContent = timeleft
-        }
+        }       
     }, 1000)
 }
 
@@ -89,9 +87,61 @@ function isAnswerCorrect(e){
     }
     displayquestion()
 }
+var Scores = JSON.parse(localStorage.getItem("scores"));
+ 
+ 
+
+var submitbtn = document.querySelector("#submit").addEventListener("click", function(event){
+    event.preventDefault()
+    var intials = document.querySelector("#intials").value
+
+    Scores.push({
+        user: intials, finalscore: timeleft
+    })
+
+    localStorage.setItem("scores", JSON.stringify(Scores))
+
+    console.log()
+        
+})
+
+
+function quizEnd(){
+    console.log("quiz ended")
+    endcontent.setAttribute("style", "display: flex")
+    quiz.setAttribute("style", "display: none")
+    document.querySelector("#finalscore").textContent = timeleft  
+}
+
+const highscorescontent = document.querySelector("#highscores")
+
+console.log(Scores)
+function displayScores(){
+    highscorescontent.setAttribute('style', 'display: block')
+    var list1 = document.querySelector("#highscores")
+
+    
+    scoresList = (arr) => {
+        let items = arr.forEach(item =>{
+            let li = document.createElement('li');
+            li.textContent = Scores.user + Scores.finalscore
+            list1.appendChild(li)
+        })
+    }
+    scoresList(Scores.toArray())
+
+}
 
 
 
+
+
+
+
+
+
+const highscoresbtn = document.querySelector("#highscoresbtn").addEventListener("click", displayScores)
+ 
 startbtn.addEventListener("click", startquiz)
 
 answer1.addEventListener("click", function(){
