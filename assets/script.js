@@ -37,7 +37,8 @@ const quiz = document.querySelector("#quizcontent")
 const question = document.querySelector("#question")
 const startbtn = document.querySelector('#startbutton')
 const answerbtns = document.querySelector('.answer')
-
+const endcontent = document.querySelector('#endcontent')
+const finalscore= document.querySelector('finalscore')
 var answer1 = document.querySelector("#answer1")
 var answer2 = document.querySelector("#answer2")
 var answer3 = document.querySelector("#answer3")
@@ -54,9 +55,15 @@ function startquiz() {
     var quiztimer = setInterval(function(){
         timeleft--
         document.querySelector('#timer').textContent = timeleft
-        if(timeleft <=0)
+
+        if(timeleft <=0 || QuestionIndex >= questions.length ){
+            console.log("quiz ended")
             clearInterval(quiztimer)
-        
+            endcontent.setAttribute("style", "display: flex")
+            quiz.setAttribute("style", "display: none")
+            clearInterval(quiztimer)
+            document.querySelector("#finalscore").textContent = timeleft
+        }
     }, 1000)
 }
 
@@ -71,12 +78,11 @@ function displayquestion() {
     answer4.innerHTML = questions[QuestionIndex].answer[3].text
 }
 
-
 function isAnswerCorrect(e){
     console.log("answer checked: " + e)
     QuestionIndex++
     if(e == false){
-        timeleft - 10
+        timeleft = timeleft - 10
         document.querySelector('#response').textContent = "Incorrect!"
     } else{
         document.querySelector('#response').textContent = "Correct!"
@@ -84,9 +90,7 @@ function isAnswerCorrect(e){
     displayquestion()
 }
 
-if(timeleft === 0 || QuestionIndex > questions.length){
-    
-}
+
 
 startbtn.addEventListener("click", startquiz)
 

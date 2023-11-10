@@ -55,4 +55,12 @@ button{
     align-self: center;
  }
 
+ #endcontent{
+    height: 10vw;
+    width: 50vw;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+ }
+
     
