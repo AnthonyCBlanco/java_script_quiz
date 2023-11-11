@@ -30,7 +30,51 @@ const questions = [
         {text: "Comma", isCorrect: false},
     ]
 },
-
+{
+    question: "Inside which HTML element do we put the JavaScript?",
+    answer: [
+        {text: "script", isCorrect: true},
+        {text: "js", isCorrect: false},
+        {text: "scripting", isCorrect: false},
+        {text: "javascript", isCorrect: false},
+    ]
+},
+{
+    question: "Where is the Correct Place to Insert a JavaScript?",
+    answer: [
+        {text: "head", isCorrect: false},
+        {text: "body", isCorrect: true},
+        {text: "footer", isCorrect: false},
+        {text: "title", isCorrect: false},
+    ]
+},
+{
+    question: "Who Created JavaScript?",
+    answer: [
+        {text: "George Washington", isCorrect: false},
+        {text: "Bill Gates", isCorrect: false},
+        {text: "Brendan Eich", isCorrect: true},
+        {text: "Miranda Cosgrove", isCorrect: false},
+    ]
+},
+{
+    question: "How do You declare A Variable?",
+    answer: [
+        {text: "var", isCorrect: false},
+        {text: "let", isCorrect: false},
+        {text: "const", isCorrect: false},
+        {text: "all of the above", isCorrect: true},
+    ]
+},
+{
+    question: "Which Of These is Not A Operator",
+    answer: [
+        {text: "&", isCorrect: true},
+        {text: "*", isCorrect: false},
+        {text: "+", isCorrect: false},
+        {text: "-", isCorrect: false},
+    ]
+},
 ]
 
 console.table(questions)
@@ -88,7 +132,7 @@ function isAnswerCorrect(e){
     displayquestion()
 }
 var Scores = [JSON.parse(localStorage.getItem("scores"))];
-var li = document.createElement("li")
+
 // Adds score to Local Storage
 var submitbtn = document.querySelector("#submit").addEventListener("click", function(event){
     event.preventDefault()

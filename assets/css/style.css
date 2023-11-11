@@ -1,5 +1,5 @@
 * {
-    background: #7CB9E8;
+    background: #9F7E69;
     font-family: 'Montserrat', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     align-items: center;
 }
@@ -19,7 +19,7 @@
     align-items: center;
     flex-direction: column;
 }
-
+/* Start Screen Styles */
 #start {
     display: flex;
     flex-direction: column;
@@ -38,11 +38,16 @@ button{
     font-size: 20px;
 }
 
+button:hover{
+    border: 2px solid lightgray;
+}
+/* Quiz Styles */
  #quizcontent{
     width: 50vw;
     display: none;
     flex-direction: column;
-    font-size: xx-large
+    font-size: xx-large;
+    color: #F7FFE0;
  }
 
  #quizcontent .answer{
@@ -55,6 +60,11 @@ button{
     align-self: center;
  }
 
+#response{
+    width: 250px;
+    border-top: 5px solid #D2BBA0;
+}
+/* End Content Styles */
  #endcontent{
     height: 10vw;
     width: 50vw;
@@ -67,4 +77,13 @@ button{
     display: none;
  }
 
+ form input{
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: #ffffff;
+ }
+
+ #submit:hover{
+    border: 2px solid lightgray;
+ }
     
