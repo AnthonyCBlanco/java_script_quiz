@@ -1,4 +1,4 @@
-var timeleft = 100;
+var timeleft = 100; // Time Given User to Commplete Quiz
 const questions = [
 {
     question: "Which One Of these is Not a JavaScript Data Type",
@@ -48,7 +48,7 @@ var answer3 = document.querySelector("#answer3")
 var answer4 = document.querySelector("#answer4")
 
 var QuestionIndex = 0
-
+//Starts Timer and displays first set of questions, also check Ending conditions
 function startquiz() {
     console.log("quiz started");
     quiz.setAttribute("style", "display: flex")
@@ -64,18 +64,18 @@ function startquiz() {
         }       
     }, 1000)
 }
-
+// Displays
 function displayquestion() {
     var currentQuestion = questions[QuestionIndex];
     var questionnum = QuestionIndex + 1
     question.innerHTML = questionnum + "." + currentQuestion.question;
-
+//Assigns Each Button Ethier a true or false depending on the "isCorrect" value in the questions object
     answer1.innerHTML = questions[QuestionIndex].answer[0].text
     answer2.innerHTML = questions[QuestionIndex].answer[1].text
     answer3.innerHTML = questions[QuestionIndex].answer[2].text
     answer4.innerHTML = questions[QuestionIndex].answer[3].text
 }
-
+// Checks if Answer is Correct
 function isAnswerCorrect(e){
     console.log("answer checked: " + e)
     QuestionIndex++
@@ -87,73 +87,31 @@ function isAnswerCorrect(e){
     }
     displayquestion()
 }
-var Scores = JSON.parse(localStorage.getItem("scores"));
- 
- 
-
+var Scores = [JSON.parse(localStorage.getItem("scores"))];
+var li = document.createElement("li")
+// Adds score to Local Storage
 var submitbtn = document.querySelector("#submit").addEventListener("click", function(event){
     event.preventDefault()
     var intials = document.querySelector("#intials").value
-
     Scores.push({
         user: intials, finalscore: timeleft
     })
-
     localStorage.setItem("scores", JSON.stringify(Scores))
-
-    console.log()
-        
 })
-
-
-function quizEnd(){
+function quizEnd(){ // Called when timer Reaches 0 or no more questions left
     console.log("quiz ended")
-    endcontent.setAttribute("style", "display: flex")
+    endcontent.setAttribute("style", "display: flex") //Displays form and Final Score Elements
     quiz.setAttribute("style", "display: none")
     document.querySelector("#finalscore").textContent = timeleft  
 }
-
-const highscorescontent = document.querySelector("#highscores")
-
-console.log(Scores)
-function displayScores(){
-    highscorescontent.setAttribute('style', 'display: block')
-    var list1 = document.querySelector("#highscores")
-
-    
-    scoresList = (arr) => {
-        let items = arr.forEach(item =>{
-            let li = document.createElement('li');
-            li.textContent = Scores.user + Scores.finalscore
-            list1.appendChild(li)
-        })
-    }
-    scoresList(Scores.toArray())
-
-}
-
-
-
-
-
-
-
-
-
-const highscoresbtn = document.querySelector("#highscoresbtn").addEventListener("click", displayScores)
- 
+// Event Listeners
 startbtn.addEventListener("click", startquiz)
-
 answer1.addEventListener("click", function(){
-    isAnswerCorrect(questions[QuestionIndex].answer[0].isCorrect)
-})
+    isAnswerCorrect(questions[QuestionIndex].answer[0].isCorrect)})
 answer2.addEventListener("click", function(){
-    isAnswerCorrect(questions[QuestionIndex].answer[1].isCorrect)
-})
+    isAnswerCorrect(questions[QuestionIndex].answer[1].isCorrect)})
 answer3.addEventListener("click", function(){
-    isAnswerCorrect(questions[QuestionIndex].answer[2].isCorrect)
-})
+    isAnswerCorrect(questions[QuestionIndex].answer[2].isCorrect)})
 answer4.addEventListener("click", function(){
-    isAnswerCorrect(questions[QuestionIndex].answer[3].isCorrect)
-})
+    isAnswerCorrect(questions[QuestionIndex].answer[3].isCorrect)})
 
